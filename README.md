@@ -4,6 +4,8 @@
 
 ## Try it
 
+[Open the live demo](https://j-m1s.github.io/ghostlight-hacktoberfest-2026/)
+
 The app contains six explicitly fictional sample notes. Add a fragment, then describe a detail in the search box. The model ranks the best passage from each note and shows the top three. The similarity value is not a probability, and the model can get things wrong. English works best.
 
 To run the source locally, serve this directory over HTTP or HTTPS with any static server; modern browsers restrict JavaScript modules and workers on `file://`. The first search downloads a quantized model of approximately 23 MB plus the library, tokenizer, and runtime. No API key or model account is needed. The initial download can take time and requires an internet connection.
