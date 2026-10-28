@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A tiny local-first semantic search for the fragments you almost forgot.">
+  <title>Ghostlight — find a forgotten note</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Ghostlight home"><span class="brand-mark">✳</span> ghostlight<span class="brand-dot">.</span></a>
+      <span class="header-note">A small home for unfinished memories <span>✦</span></span>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="signal"></span> AN OPEN-SOURCE AI EXPERIMENT</p>
+          <h1>For the notes you <em>almost</em> forgot.</h1>
+          <p class="lede">Some memories don't have the right keywords. Describe the feeling, the moment, or the thing you remember. Ghostlight finds the fragments that might be connected.</p>
+          <div class="hero-tags"><span>✦ Search by meaning</span><span>⌁ Runs in your browser</span><span>♡ No account needed</span></div>
+        </div>
+        <div class="lantern" aria-hidden="true"><div class="lantern-glow"></div><div class="lantern-orbit orbit-one"></div><div class="lantern-orbit orbit-two"></div><div class="lantern-core"><span>✳</span></div><div class="spark one">✶</div><div class="spark two">✧</div><div class="spark three">·</div><span class="lantern-label">KEEP A LIGHT ON<br>FOR WHAT MATTERS</span></div>
+      </section>
+      <section class="workspace" id="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading"><div><p class="eyebrow">YOUR LITTLE ARCHIVE</p><h2 id="workspace-title">Bring a fragment back.</h2></div><p>Try the fictional examples below, or replace them with notes of your own.</p></div>
+        <div class="columns">
+          <div class="archive panel">
+            <div class="panel-head"><div><span class="step">01</span><h3>Your fragments</h3></div><span class="count" id="count">0 notes</span></div>
+            <p class="panel-intro">Add a short note, or remove the examples. The little details are often enough.</p>
+            <form id="note-form">
+              <label for="note-title">Title <span>optional</span></label><input id="note-title" maxlength="80" placeholder="A name for this moment">
+              <label for="note-body">The fragment</label><textarea id="note-body" maxlength="5000" rows="3" required placeholder="Write or paste a few lines in English…"></textarea>
+              <button class="button secondary" type="submit">+ Add fragment</button>
+            </form>
+            <div class="list-head"><span>IN THIS BROWSER</span><button class="text-button" id="reset" type="button">Restore examples</button></div>
+            <ul id="notes" class="notes" aria-label="Fragments"></ul>
+            <div class="archive-actions"><button class="text-button" id="export" type="button">↓ Export JSON</button><label class="text-button import">↑ Import JSON<input id="import" type="file" accept="application/json,.json"></label></div>
+          </div>
+          <div class="search panel">
+            <div class="panel-head"><div><span class="step">02</span><h3>Look for a memory</h3></div><span class="mini-star">✳</span></div>
+            <p class="panel-intro">What do you remember? You don't need to use the same words as the original note.</p>
+            <form id="search-form">
+              <label for="query">A detail, feeling, or question</label>
+              <textarea id="query" rows="3" maxlength="500" placeholder="That time someone helped me when I felt stuck…" required></textarea>
+              <button class="button primary" id="search-button" type="submit"><span>Find a fragment</span><span aria-hidden="true">↗</span></button>
+            </form>
+            <p class="model-hint">First search downloads an open model (about 23 MB). The model works best in English.</p>
+            <div class="status" id="status" role="status" aria-live="polite"><span class="status-dot"></span><span id="status-text">Ready when you are</span></div>
+            <div id="results" class="results" aria-live="polite"><div class="empty"><span>✦</span><p>Your closest fragments<br>will appear here.</p></div></div>
+          </div>
+        </div>
+      </section>
+      <section class="footer-grid"><div><p class="eyebrow">A NOTE ON TRUST</p><h2>Small, open, and yours.</h2></div><div><p>Search runs in your browser using the open-weight <a href="https://huggingface.co/Xenova/all-MiniLM-L6-v2">all-MiniLM-L6-v2</a> model and <a href="https://huggingface.co/docs/transformers.js">Transformers.js</a>. Your note text isn't sent to an inference server by this app. The site, fonts, library, and model are downloaded from hosting and third-party providers, which can see normal network information such as your IP address.</p><p>Fragments are stored in this browser, not synced. Clearing browser data may erase them: export a backup. Similarity is a suggestion, not proof that two memories match. Long fragments are searched in overlapping passages.</p><p class="fine">Made for Hacktoberfest's “Ghost in the Machine.” Fictional examples. Please don't enter secrets or sensitive details on a shared device.</p></div></section>
+    </main>
+    <footer><span>✳ ghostlight</span><span>Keep a light on for the things worth finding again.</span></footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
